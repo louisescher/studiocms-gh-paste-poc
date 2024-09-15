@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>GitHub-Style Paste POC 💜</h1>
+		<textarea id="textarea" placeholder="Check the source code to see how this works!"></textarea>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		width: 800px;
+		max-height: 100vh;
+		height: 100vh;
+		max-width: calc(100% - 2rem);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Switzer Variable' !important;
+		color: white;
+		flex-direction: column;
+	}
+	textarea {
+		width: 100%;
+		height: fit-content;
+		border: 1px solid #27272a;
+		border-radius: 8px;
+		font-family: 'Switzer Variable' !important;
+		background-color: #191919;
+		padding: .5rem;
+		font-size: 1em;
+		height: 20rem;
+		resize: none;
+		color: white;
+	}
+	textarea:focus {
+		outline: 1px solid #aa87f4;
+		outline-offset: 2px;
+	}
+</style>
+<script>
+	const textarea = document.getElementById('textarea')! as HTMLTextAreaElement;
+	textarea.addEventListener('paste', (event) => {
+		let file = event.clipboardData?.files[0];
+
+		if (!file) return;
+		
+		// UPLOAD TO SERVICE HERE, GET URL
+
+		textarea.setRangeText(`![${file.name}](https://example.com/)`, textarea.selectionStart, textarea.selectionEnd, 'end');
+	});
+</script>
