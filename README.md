@@ -1,2 +1,2 @@
-# gh-paste-poc
- 
+# StudioCMS GitHub-Style Paste POC
+This is a proof of concept for [StudioCMS](https://astro-studiocms.xyz/) to show how GitHub-Style pasting of images could be achieved with just a few lines of JS. To try it out, head to the [GitHub Pages deployment](https://louisescher.github.io/studiocms-gh-paste-poc/) and paste an image of your choice. To be clear, this doesn't actually upload the image to any provider, it just shows that it's possible to grab the file from the clipboard on paste even in a non-richtext editor.
